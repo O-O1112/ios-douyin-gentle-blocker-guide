@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iOS 抖音柔和封鎖器｜視覺化設定引導</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <div class="badge-row">
+        <span class="badge">iOS 捷徑自動化</span>
+        <span class="badge badge-safe">純本地端</span>
+        <span class="badge badge-safe">免家長驗證</span>
+        <span class="badge badge-safe">安全可退出</span>
+      </div>
+      <h1>iOS 抖音柔和封鎖器</h1>
+      <p class="subtitle">
+        不強制鎖死、不需電腦與開發者帳號。透過 iOS 內建「捷徑」打造溫柔勸退機制，1 分鐘完成設定，隨時一鍵解除。
+      </p>
+      <div class="hero-actions">
+        <a href="#guide" class="btn btn-primary">開始視覺化設定</a>
+        <button id="btn-try-demo" class="btn btn-secondary" type="button">直接試玩模擬效果</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-layout" id="guide">
+    <!-- 左側：步驟引導與客製化 -->
+    <section class="steps-panel" aria-label="設定步驟引導">
+      <div class="progress-header">
+        <span id="step-counter" class="step-counter">步驟 1 / 5</span>
+        <div class="progress-track" role="progressbar" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1">
+          <div id="progress-fill" class="progress-fill" style="width: 20%;"></div>
+        </div>
+      </div>
+
+      <nav class="step-tabs" aria-label="步驟切換">
+        <button class="step-tab active" data-step="1" type="button">1. 建立自動化</button>
+        <button class="step-tab" data-step="2" type="button">2. 勸退語錄</button>
+        <button class="step-tab" data-step="3" type="button">3. 柔和緩衝</button>
+        <button class="step-tab" data-step="4" type="button">4. 退出選單</button>
+        <button class="step-tab" data-step="5" type="button">5. 隨時解除</button>
+      </nav>
+
+      <article id="step-content" class="step-card">
+        <!-- 由 app.js 動態渲染 -->
+      </article>
+
+      <div class="step-nav-buttons">
+        <button id="btn-prev" class="btn btn-ghost" type="button" disabled>上一步</button>
+        <button id="btn-next" class="btn btn-primary" type="button">下一步</button>
+      </div>
+
+      <!-- 客製化語錄工具 -->
+      <section class="quote-customizer" aria-label="勸退語錄客製化">
+        <div class="customizer-header">
+          <h2>客製化勸退語錄</h2>
+          <button id="btn-copy-quotes" class="btn btn-small btn-secondary" type="button">複製全部語錄</button>
+        </div>
+        <p class="hint">編輯後會同步套用到右側 iPhone 模擬器，方便直接複製貼進捷徑的「列表」動作。</p>
+        <ul id="quote-list" class="quote-list"></ul>
+        <form id="quote-form" class="quote-form">
+          <input id="quote-input" type="text" placeholder="輸入新的溫柔提醒語（例如：先喝口水再滑？）" maxlength="80" required />
+          <button class="btn btn-small btn-primary" type="submit">新增</button>
+        </form>
+        <span id="copy-toast" class="copy-toast" aria-live="polite"></span>
+      </section>
+    </section>
+
+    <!-- 右側：互動式 iPhone 模擬器 -->
+    <aside class="simulator-panel" aria-label="iPhone 互動模擬器">
+      <div class="sim-toolbar">
+        <span class="sim-label">即時 iPhone 預覽</span>
+        <button id="btn-reset-sim" class="btn btn-small btn-ghost" type="button">回到模擬桌面</button>
+      </div>
+
+      <div class="iphone-frame">
+        <div class="iphone-notch"></div>
+        <div class="iphone-screen">
+          <div class="ios-statusbar">
+            <span>17:27</span>
+            <span class="ios-icons">5G 🔋</span>
+          </div>
+
+          <div id="iphone-viewport" class="iphone-viewport">
+            <!-- 由 app.js 動態切換畫面：捷徑教學示意 / 互動試玩 -->
+          </div>
+
+          <div class="ios-home-indicator"></div>
+        </div>
+      </div>
+
+      <p class="sim-caption">點擊模擬器中的「抖音」圖示，即可體驗實際開啟時的柔和勸退流程。</p>
+    </aside>
+  </main>
+
+  <section class="safety-section">
+    <div class="container">
+      <h2>安全與設計原則</h2>
+      <div class="safety-grid">
+        <div class="safety-card">
+          <h3>🔒 純本地執行</h3>
+          <p>完全使用 iOS 內建「捷徑」App，不上傳任何資料、不連網、不需安裝來路不明的描述檔。</p>
+        </div>
+        <div class="safety-card">
+          <h3>🕊️ 不強制鎖死</h3>
+          <p>選單永遠保留「放行」選項，只製造 3 秒思考緩衝，避免情緒反彈或緊急狀況無法使用。</p>
+        </div>
+        <div class="safety-card">
+          <h3>🔓 免家長驗證</h3>
+          <p>不需「螢幕使用時間」密碼或家庭共享，同學本人就能在「自動化」分頁一鍵開關。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>iOS 抖音柔和封鎖器視覺化引導 · 純前端靜態網頁</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
